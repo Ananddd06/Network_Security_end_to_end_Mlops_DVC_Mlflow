@@ -84,6 +84,15 @@ docker run -p 8000:8000 network-mlops-app
 
 ```
 
+## 📊 Dataset Used
+
+This is the dataset used to build and train the machine learning model in this project.  
+Download it from the link below:
+
+[![Download Dataset](https://img.shields.io/badge/Download-dataset.csv-blue?logo=google-drive&style=for-the-badge)](https://drive.google.com/uc?export=download&id=1RyfjeqoM7QWzgOoCKi3YWvT9fYPjZ9lh)
+
+---
+
 # 📈 MLflow Example Output
 
 - 🔢 Accuracy, Precision, Recall, ROC Curve
