@@ -9,4 +9,6 @@ setuptools
 scipy
 dvc
 dagshub
+pymongo
+certifi
 -e .

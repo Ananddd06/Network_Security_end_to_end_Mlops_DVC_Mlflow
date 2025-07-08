@@ -21,7 +21,7 @@ def get_requirements(file_path : str)->List[str]:
 
 setup(
     name = "networksecurity",
-    version = "1.0.0" ,
+    version = "0.0.1" ,
     author = 'Anand J',
     author_email = 'anand06.jeyakumar@gmail.com',
     packages = find_packages(),
