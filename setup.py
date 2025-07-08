@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 import os 
 import sys 
-from networksecurity.logger import Custom_Logger
-from networksecurity.exception import CustomException
+from networksecurity.logger.customlogger import Custom_Logger
+from networksecurity.exception.exception import CustomException
 from typing import List
 
 HYPEN_E_DOT = '-e .'
