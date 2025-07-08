@@ -1,7 +1,7 @@
 python-dotenv
 dvc
 pandas
-numpy
+numpy==1.26
 scikit-learn
 matplotlib
 seaborn
