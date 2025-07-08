@@ -4,8 +4,14 @@ from datetime import datetime
 
 class Custom_Logger:
     def get_logger(self):
-        # Get the project root directory
-        project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        # Get the absolute path to the project root (where app.py is located)
+        project_root = os.path.dirname(os.path.abspath(__file__))
+        while not os.path.exists(os.path.join(project_root, "app.py")):
+            parent = os.path.dirname(project_root)
+            if parent == project_root:
+                break  # Reached the filesystem root
+            project_root = parent
+
         log_dir = os.path.join(project_root, "log")  # <-- use 'log' not 'logs'
         os.makedirs(log_dir, exist_ok=True)
         log_file = os.path.join(log_dir, f"log_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log")
@@ -29,8 +35,4 @@ if __name__ == "__main__":
     log.debug("🔍 Debug info for development")
     log.info("✅ Model training started")
     log.warning("⚠️ Null values detected")
-    try:
-        x = 1 / 0  # Simulated error
-    except Exception as e:
-        log.error(f"❌ Exception occurred: {e}")
     log.critical("🔥 Critical failure in pipeline")
