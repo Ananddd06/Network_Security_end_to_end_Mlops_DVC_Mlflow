@@ -5,3 +5,8 @@ numpy
 scikit-learn
 matplotlib
 seaborn
+setuptools
+scipy
+dvc
+dagshub
+-e .
