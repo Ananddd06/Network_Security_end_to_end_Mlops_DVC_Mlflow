@@ -150,5 +150,67 @@ Would you like me to now generate:
 - 🔄 .github/workflows/mlops.yml – full CI/CD pipeline with GitHub Actions
 - ⚙️ dvc.yaml – for defining your DVC stages (data, preprocess, train, evaluate)
 - 📊 mlflow_tracking.py – script to log parameters, metrics, and models to MLflow
+- 🖥️ Streamlit or Flask app – for serving your trained model via an interactive web app or API
+
+---
+
+## 🖥️ Model Deployment Options
+
+Choose either of the following options to serve your trained model:
+
+#### 🎨 Streamlit Dashboard
+
+- An interactive web interface to test your model
+- Upload CSV or manually enter input features
+- See predictions live, with metrics and visualizations
+
+```bash
+
+streamlit run src/app_streamlit.py
+
+```
+
+---
+
+## 🚀 Flask API
+
+- A production-grade REST API endpoint to serve predictions
+- Send POST requests with JSON payload
+- Easily integrate with any web or mobile frontend
+
+```bash
+
+python src/app_flask.py
+
+```
+
+> 💡 Whether you're demoing the model in a web dashboard (Streamlit) or deploying via API (Flask), this project gives you flexibility to move fast in any real-world environment.
+
+---
+
+---
+
+## 🧪 DEMO & Practice
+
+This project structure and workflow was inspired by **Krish Naik sir’s** teachings on practical MLOps and end-to-end ML deployment.
+
+> 💡 I’ve extended and personalized it with full MLOps integration, CI/CD, and deployment options for real-world use cases in Network Security.
+
+### 🧑‍🏫 Demo Guidance:
+
+You can also explore Krish Naik’s YouTube tutorials on:
+
+- DVC + MLflow
+- MLOps project pipelines
+- Dockerized ML apps
+- Streamlit deployment
+- GitHub Actions for CI/CD
+
+▶️ **Practice this project hands-on** by cloning and running each stage step-by-step.  
+Contributions are welcome to enhance this open-source solution further!
+
+---
+
+> 💬 _“Learning by doing is the fastest path to mastery.”_ — Thanks to Krish Naik sir for being a constant inspiration to ML learners.
 
 ---
