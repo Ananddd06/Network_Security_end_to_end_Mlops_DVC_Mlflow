@@ -34,5 +34,6 @@ if __name__ == "__main__":
 
     log.debug("🔍 Debug info for development")
     log.info("✅ Model training started")
+    log.error("❌ Error encountered during model training")
     log.warning("⚠️ Null values detected")
     log.critical("🔥 Critical failure in pipeline")
