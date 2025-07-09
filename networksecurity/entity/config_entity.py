@@ -90,15 +90,22 @@ class DataTransformationConfigEntity:
             self.training_pipeline_config.artifact_dir,
             training_pipeline.DATA_TRANSFORMATION_DIR_NAME
         )
+
+        # For transformed train/test data files
         self.transformed_train_file_path: str = os.path.join(
             self.data_transformation_dir,
-            training_pipeline.DATA_TRANSFORMATION_TRANSFORMED_DIR,
-            training_pipeline.TRAIN_FILE_NAME)
+            training_pipeline.DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR,  # fixed here
+            training_pipeline.TRAIN_FILE_NAME
+        )
         self.transformed_test_file_path: str = os.path.join(
             self.data_transformation_dir,
-            training_pipeline.DATA_TRANSFORMATION_TRANSFORMED_DIR,
-            training_pipeline.TEST_FILE_NAME)
+            training_pipeline.DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR,  # fixed here
+            training_pipeline.TEST_FILE_NAME
+        )
+
+        # For transformed object (like preprocessing object pickle)
         self.transformed_object_file_path: str = os.path.join(
             self.data_transformation_dir,
-            training_pipeline.DATA_TRANSFORMATION_TRANSFORMED_DIR , 
-            training_pipeline.PREPROCESSING_OBJECT_FILE_NAME)
+            training_pipeline.DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR,  # fixed here
+            training_pipeline.MODEL_FILE_NAME  # You might want to change this if you have a specific preprocessing object file name constant
+        )

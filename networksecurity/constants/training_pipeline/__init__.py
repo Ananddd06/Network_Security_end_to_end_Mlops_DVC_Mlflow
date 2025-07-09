@@ -50,6 +50,6 @@ DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR : str = "transformed_object"
 
 DATA_TRANSFORMATION_IMPUTER_PARAMS : dict = {
     "missing_values": np.nan,
-    "n-neighbors": 3,
+    "n_neighbors": 3,
     "weights": "uniform",
 }
