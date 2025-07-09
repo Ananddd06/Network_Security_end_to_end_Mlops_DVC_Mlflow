@@ -4,7 +4,7 @@ from networksecurity.logger.customlogger import Custom_Logger
 from networksecurity.exception.exception import CustomException
 from networksecurity.utils.ml_metric.classification_metric import get_classification_score
 from networksecurity.entity.config_entity import ModelTrainerConfigEntity , DataTransformationConfigEntity
-from networksecurity.entity.artifact_entity import DataTransformationArtifactEntity , ModelTrainerArtifactEntity
+from networksecurity.entity.artifact_entity import DataTransformationArtifact , ModelTrainerArtifact
 from networksecurity.utils.main_utils import save_obj , load_obj , load_numpy_array_data , evaluate_models
 from networksecurity.utils.model_metric.estimator import NetworkModel
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
@@ -12,12 +12,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier , GradientBoostingClassifier , AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
-from sklear.neighbors import KNeighborsClassifier
+from sklearn.neighbors import KNeighborsClassifier
 
 
 class ModelTrainer:
     def __init__(self, model_trainer_config: ModelTrainerConfigEntity,
-                 data_transformation_artifact: DataTransformationArtifactEntity):
+                 data_transformation_artifact: DataTransformationArtifact):
         try:
             self.model_trainer_config = model_trainer_config
             self.data_transformation_artifact = data_transformation_artifact
@@ -82,9 +82,6 @@ class ModelTrainer:
     
             y_test_pred=best_model.predict(X_test)
             classification_test_metric=get_classification_score(y_true=y_test,y_pred=y_test_pred)
-
-            self.track_mlflow(best_model,classification_test_metric)
-
             preprocessor = load_obj(file_path=self.data_transformation_artifact.transformed_object_file_path)
                 
             model_dir_path = os.path.dirname(self.model_trainer_config.trained_model_file_path)
@@ -95,8 +92,8 @@ class ModelTrainer:
             #model pusher
             save_obj("final_model/model.pkl",best_model)
 
-            model_trainer_artifact=ModelTrainerArtifactEntity(trained_model_file_path=self.model_trainer_config.trained_model_file_path,
-                             train_metric_artifact=classification_train_metric,
+            model_trainer_artifact=ModelTrainerArtifact(trained_model_file_path=self.model_trainer_config.trained_model_file_path,
+                             trained_metric_artifact=classification_train_metric,
                              test_metric_artifact=classification_test_metric
                              )
             self.logger.info(f"Model trainer artifact: {model_trainer_artifact}")
@@ -104,7 +101,7 @@ class ModelTrainer:
         except Exception as e:
             raise CustomException(e, sys) from e
     
-    def initiate_model_trainer(self) -> ModelTrainerArtifactEntity:
+    def initiate_model_trainer(self) -> ModelTrainerArtifact:
         try:
             train_file_path = self.data_transformation_artifact.transformed_train_file_path
             test_file_path = self.data_transformation_artifact.transformed_test_file_path
