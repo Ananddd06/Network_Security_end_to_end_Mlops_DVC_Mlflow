@@ -10,7 +10,7 @@ setuptools
 scipy
 dvc
 dill
-dagshub
+mlflow
 pymongo
 pymongo[srv]==3.6
 certifi
