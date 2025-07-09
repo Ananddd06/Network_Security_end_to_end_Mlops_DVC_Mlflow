@@ -4,7 +4,7 @@ import numpy as np
 import dill
 import yaml
 from pandas import DataFrame
-from networksecurity.exception.exception import Custom_Exception
+from networksecurity.exception.exception import CustomException
 from networksecurity.logger.customlogger import Custom_Logger
 
 logging = Custom_Logger().get_logger()
@@ -14,7 +14,7 @@ def read_yaml_file(file_path: str) -> dict:
         with open(file_path, 'r') as file:  # Open the file in text mode ('r')
             return yaml.safe_load(file)
     except Exception as e:
-        raise Custom_Exception(e, sys) from e
+        raise CustomException(e, sys) from e
 
 def write_yaml_file(file_path: str, content: object, replace: bool = False) -> None:
     """Writes content to a YAML file, with an option to replace existing file."""
@@ -31,7 +31,7 @@ def write_yaml_file(file_path: str, content: object, replace: bool = False) -> N
         with open(file_path, 'w') as file:  # Open the file in text mode ('w')
             yaml.dump(content, file)
     except Exception as e:
-        raise Custom_Exception(e, sys) from e
+        raise CustomException(e, sys) from e
 
 def load_obj(file_path: str) -> object:
     """Loads a pickled object from a file."""
@@ -42,7 +42,7 @@ def load_obj(file_path: str) -> object:
             logging.info("Exited the load object from the method utils")
             return obj
     except Exception as e:
-        raise Custom_Exception(e, sys) from e
+        raise CustomException(e, sys) from e
 
 def save_numpy_array_data(file_path: str, array: np.array) -> None:
     """Saves a numpy array to a file."""
@@ -54,7 +54,7 @@ def save_numpy_array_data(file_path: str, array: np.array) -> None:
         with open(file_path, "wb") as file:  # Open the file in binary mode ('wb')
             np.save(file, array)
     except Exception as e:
-        raise Custom_Exception(e, sys) from e
+        raise CustomException(e, sys) from e
 
 def load_numpy_array_data(file_path: str) -> np.array:
     """Loads a numpy array from a file."""
@@ -62,7 +62,7 @@ def load_numpy_array_data(file_path: str) -> np.array:
         with open(file_path, "rb") as file:  # Open the file in binary mode ('rb')
             return np.load(file)
     except Exception as e:
-        raise Custom_Exception(e, sys) from e
+        raise CustomException(e, sys) from e
 
 def save_obj(file_path: str, obj: object) -> None:
     """Saves an object to a file using dill."""
@@ -77,7 +77,7 @@ def save_obj(file_path: str, obj: object) -> None:
 
         logging.info("Exited the save object from the utils")
     except Exception as e:
-        raise Custom_Exception(e, sys) from e
+        raise CustomException(e, sys) from e
 
 def drop_columns(df: DataFrame, cols: list) -> DataFrame:
     """Drops specified columns from a DataFrame."""
@@ -87,4 +87,4 @@ def drop_columns(df: DataFrame, cols: list) -> DataFrame:
         logging.info("Exited the drop columns of the method Utils")
         return result
     except Exception as e:
-        raise Custom_Exception(e, sys) from e
+        raise CustomException(e, sys) from e

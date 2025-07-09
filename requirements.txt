@@ -5,10 +5,11 @@ numpy==1.26
 scikit-learn
 matplotlib
 seaborn
-evidently
+evidently==0.4.15
 setuptools
 scipy
 dvc
+dill
 dagshub
 pymongo
 pymongo[srv]==3.6

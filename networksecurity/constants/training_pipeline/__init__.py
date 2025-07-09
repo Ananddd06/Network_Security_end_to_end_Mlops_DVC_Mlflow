@@ -34,8 +34,9 @@ DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO: float = 0.2
 Data validation related constants starts with DATA_VALIDATION VAR NAME
 """
 
-DATA_VALIDATION_DIR_NAME : str = "data_validation"
-DATA_VALIDATION_VALID_DIR : str = "valid"
-DATA_VALIDATION_INVALID_DIR : str = "invalid"
-DATA_VALIDATION_DRIFT_REPORT_DIR : str = "drift_report"
-DATA_VALIDATION_DRIFT_REPORT_FILE_NAME : str = "report.yaml"
+DATA_VALIDATION_DIR_NAME = "data_validation"
+DATA_VALIDATION_VALID_DIR = "valid"
+DATA_VALIDATION_INVALID_DIR = "invalid"
+DATA_VALIDATION_DRIFT_REPORT_DIR = "drift_report"
+DATA_VALIDATION_DRIFT_REPORT_FILE_NAME = "drift_report.html"
+DATA_VALIDATION_DRIFT_SUMMARY_FILE_NAME = "drift_summary.yaml" 
