@@ -5,6 +5,7 @@ from networksecurity.utils.main_utils import read_yaml_file, write_yaml_file
 from networksecurity.logger.customlogger import Custom_Logger
 from networksecurity.constants.training_pipeline import SCHEMA_FILE_PATH
 
+# this is for the Evidently library
 from evidently.report import Report
 from evidently.metric_preset import DataDriftPreset
 
@@ -75,8 +76,35 @@ class DataValidation:
                 self.logger.info(f"📄 Drift summary saved to YAML: {yaml_path}")
 
         except Exception as e:
-            self.logger.error("❌ Drift report generation failed.")
             raise CustomException(e, sys) from e
+    
+    def detect_outliers(self, dataframe: pd.DataFrame) -> dict:
+        """
+        Detects outliers in numeric columns using the IQR method.
+        Returns a summary dictionary with outlier counts per column.
+        """
+        try:
+            self.logger.info("🔍 Detecting outliers using IQR method...")
+            outlier_summary = {}
+
+            numeric_columns = dataframe.select_dtypes(include=['int64', 'float64']).columns
+            for col in numeric_columns:
+                Q1 = dataframe[col].quantile(0.25)
+                Q3 = dataframe[col].quantile(0.75)
+                IQR = Q3 - Q1
+                lower_bound = Q1 - 1.5 * IQR
+                upper_bound = Q3 + 1.5 * IQR
+
+                outliers = dataframe[(dataframe[col] < lower_bound) | (dataframe[col] > upper_bound)]
+                outlier_count = outliers.shape[0]
+                outlier_summary[col] = outlier_count
+
+                self.logger.info(f"Column '{col}': {outlier_count} outliers detected")
+
+            return outlier_summary
+        except Exception as e:
+            raise CustomException(e, sys) from e
+
 
     def initiate_data_validation(self) -> DataValidationArtifact:
         """Runs the complete data validation pipeline."""
@@ -100,11 +128,23 @@ class DataValidation:
 
             self.get_data_drift_report(train_df, test_df, drift_html, drift_yaml)
 
-            return DataValidationArtifact(
-                validation_status=True,
-                drift_report_file_path=drift_html,
-                drift_summary_file_path=drift_yaml
-            )
+            # do outlier detection
+            # Detect and log outliers
+            train_outliers = self.detect_outliers(train_df)
+            test_outliers = self.detect_outliers(test_df)
+            self.logger.info(f"🧮 Train outliers summary: {train_outliers}")
+            self.logger.info(f"🧮 Test outliers summary: {test_outliers}")
 
+            data_validation_artifact = DataValidationArtifact(
+                validation_status=True,
+                valid_train_file_path=self.data_ingestion_artifact.train_file_path,
+                valid_test_file_path=self.data_ingestion_artifact.test_file_path,
+                invalid_train_file_path=None,
+                invalid_test_file_path=None,
+                drift_report_file_path=self.data_validation_config.drift_report_path,
+                drift_summary_file_path=self.data_validation_config.drift_yaml_path
+            )
+            self.logger.info("✅ Data validation completed successfully.")
+            return data_validation_artifact
         except Exception as e:
             raise CustomException(e, sys) from e
