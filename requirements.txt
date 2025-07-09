@@ -5,6 +5,7 @@ numpy==1.26
 scikit-learn
 matplotlib
 seaborn
+evidently
 setuptools
 scipy
 dvc
