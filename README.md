@@ -105,7 +105,7 @@ Download it from the link below:
 
 For seamless monitoring of the project’s DVC pipelines and MLflow experiments, kindly visit the Dagshub repository linked below:
 
-![Dagshub Repo](https://dagshub.com/Ananddd06/Network_Security_end_to_end_Mlops_DVC_Mlflow)
+🔗 [View Dagshub Repository](https://dagshub.com/Ananddd06/Network_Security_end_to_end_Mlops_DVC_Mlflow)
 
 ### 📷 MLflow Tracking UI
 
