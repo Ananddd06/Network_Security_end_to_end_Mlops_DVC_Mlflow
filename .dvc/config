@@ -1,3 +1,2 @@
 ['remote "origin"']
-    url = s3://dvc
-    endpointurl = https://dagshub.com/Ananddd06/Network_Security_end_to_end_Mlops_DVC_Mlflow.s3
+    url = https://dagshub.com/Ananddd06/Network_Security_end_to_end_Mlops_DVC_Mlflow.dvc

@@ -5,11 +5,11 @@ from datetime import datetime
 
 class TrainingPipelineConfigEntity:
     def __init__(self):
-        timestamp: str = datetime.now().strftime("%Y%m%d%H%M%S")
-        self.pipeline_name: str = training_pipeline.PIPELINE_NAME
-        self.artifacts_name: str = training_pipeline.ARTIFACTS_DIR
-        self.artifact_dir: str = os.path.join(self.artifacts_name, self.pipeline_name, timestamp)
-        self.timestamp: str = timestamp
+        self.pipeline_name: str = training_pipeline.PIPELINE_NAME  # e.g., "NetworkSecurityTrainingPipeline"
+        self.artifacts_name: str = training_pipeline.ARTIFACTS_DIR  # e.g., "artifacts"
+        self.artifact_dir: str = os.path.join(self.artifacts_name, self.pipeline_name)
+        self.timestamp: str = datetime.now().strftime("%Y%m%d%H%M%S")  # Keep this if you still want to log timestamp separately
+
 
 @dataclass
 class DataIngestionConfigEntity:
