@@ -101,6 +101,14 @@ Download it from the link below:
 
 ---
 
+## Monitoring and Experiment Tracking
+
+For seamless monitoring of the project’s DVC pipelines and MLflow experiments, kindly visit the Dagshub repository linked below:
+
+[![Dagshub Repo](https://dagshub.com/Ananddd06/Network_Security_end_to_end_Mlops_DVC_Mlflow.svg?style=flat-square)](https://dagshub.com/Ananddd06/Network_Security_end_to_end_Mlops_DVC_Mlflow)
+
+---
+
 ## 🚧 CI/CD Pipeline (GitHub Actions)
 
 `.github/workflows/mlops.yml`  
@@ -120,16 +128,6 @@ Runs the full pipeline on every push:
 - 🔐 Add role-based access control for logs
 - 📊 Grafana + Prometheus monitoring
 - ☁️ Deploy to AWS Sagemaker or GCP AI Platform
-
----
-
-## 🙌 Credits
-
-Special thanks to:
-
-- 🧑‍💻 Your Name
-- ❤️ Open-source contributors
-- 📡 DagsHub, MLflow, DVC for making MLOps elegant
 
 ---
 
