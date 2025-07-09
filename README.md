@@ -105,9 +105,26 @@ Download it from the link below:
 
 For seamless monitoring of the project’s DVC pipelines and MLflow experiments, kindly visit the Dagshub repository linked below:
 
-[![Dagshub Repo](https://dagshub.com/Ananddd06/Network_Security_end_to_end_Mlops_DVC_Mlflow.svg?style=flat-square)](https://dagshub.com/Ananddd06/Network_Security_end_to_end_Mlops_DVC_Mlflow)
+![Dagshub Repo](https://dagshub.com/Ananddd06/Network_Security_end_to_end_Mlops_DVC_Mlflow)
 
----
+### 📷 MLflow Tracking UI
+
+Here's a preview of how the experiments and metrics are logged in MLflow:
+
+![MLflow Tracking](Images/mlflow_tracking.png)
+![MLFLOW_COMPARISION](Images/mlflow_comparing.png)
+
+### 📊 Metrics & Charts
+
+Below is a visualization of metrics like accuracy, precision, recall over different runs:
+
+![MLflow Charts](Images/charts_mlflow.png)
+
+### 🔁 DVC Pipeline from Dagshub
+
+DVC pipeline stages and tracking interface hosted on Dagshub:
+
+## ![DVC Pipeline](Images/DVC_pipeline.png)
 
 ## 🚧 CI/CD Pipeline (GitHub Actions)
 
