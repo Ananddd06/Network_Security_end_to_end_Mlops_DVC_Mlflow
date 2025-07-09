@@ -153,16 +153,6 @@ Runs the full pipeline on every push:
 
 ---
 
-## 📬 Contact
-
-If you found this project helpful, let’s connect!
-
-- 💼 LinkedIn
-- 🐙 GitHub
-- ✉️ your.email@example.com
-
----
-
 ## ⭐️ Show your support
 
 If you liked this project, please consider giving it a ⭐️ and sharing with others!
