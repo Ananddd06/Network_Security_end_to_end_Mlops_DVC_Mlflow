@@ -124,7 +124,7 @@ class ModelTrainerConfigEntity:
             training_pipeline.MODEL_TRAINER_TRAINED_MODEL_DIR
         )
         self.expected_score: float = training_pipeline.MODEL_TRAINER_EXPECTED_SCORE
-        self.overfitting_underfitting_threshold: training_pipeline.MODEL_TRAINER_OVER_FITTING_UNDER_FITTING_THRESHOLD# Assuming you want to keep this as a constant
+        self.overfitting_underfitting_threshold: float = training_pipeline.MODEL_TRAINER_OVER_FITTING_UNDER_FITTING_THRESHOLD
         self.model_config_file_path: str = os.path.join(
             self.model_trainer_dir,
             training_pipeline.MODEL_FILE_PATH
