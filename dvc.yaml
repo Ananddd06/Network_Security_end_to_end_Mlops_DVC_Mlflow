@@ -1,0 +1,40 @@
+stages:
+  data_ingestion:
+    cmd: python app.py --stage data_ingestion
+    deps:
+      - Network_Data/phisingData.csv
+      - networksecurity/components/data_ingestion.py
+    outs:
+      - artifacts/NetworkSecurityTrainingPipeline/data_ingestion/feature_store/phisingData.csv
+      - artifacts/NetworkSecurityTrainingPipeline/data_ingestion/ingested/train.csv
+      - artifacts/NetworkSecurityTrainingPipeline/data_ingestion/ingested/test.csv
+
+  data_validation:
+    cmd: python app.py --stage data_validation
+    deps:
+      - artifacts/NetworkSecurityTrainingPipeline/data_ingestion/ingested/train.csv
+      - networksecurity/components/data_validation.py
+    outs:
+      - artifacts/NetworkSecurityTrainingPipeline/data_validation/valid_train/train.csv
+      - artifacts/NetworkSecurityTrainingPipeline/data_validation/valid_test/test.csv
+      - artifacts/NetworkSecurityTrainingPipeline/data_validation/drift_report/drift_report.html
+
+  data_transformation:
+    cmd: python app.py --stage data_transformation
+    deps:
+      - artifacts/NetworkSecurityTrainingPipeline/data_validation/valid_train/train.csv
+      - artifacts/NetworkSecurityTrainingPipeline/data_validation/valid_test/test.csv
+      - networksecurity/components/data_tranformation.py
+    outs:
+      - artifacts/NetworkSecurityTrainingPipeline/data_transformation/transformed/train.csv
+      - artifacts/NetworkSecurityTrainingPipeline/data_transformation/transformed/test.csv
+      - artifacts/NetworkSecurityTrainingPipeline/data_transformation/transformed_object/model.pkl
+
+  model_trainer:
+    cmd: python app.py --stage model_trainer
+    deps:
+      - artifacts/NetworkSecurityTrainingPipeline/data_transformation/transformed/train.csv
+      - artifacts/NetworkSecurityTrainingPipeline/data_transformation/transformed/test.csv
+      - networksecurity/components/model_trainer.py
+    outs:
+      - artifacts/NetworkSecurityTrainingPipeline/model_trainer/trained_model.pkl
