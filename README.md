@@ -112,13 +112,18 @@ For seamless monitoring of the project’s DVC pipelines and MLflow experiments,
 Here's a preview of how the experiments and metrics are logged in MLflow:
 
 ![MLflow Tracking](Images/mlflow_tracking.png)
-![MLFLOW_COMPARISION](Images/mlflow_comparing.png)
+
+### MLFLOW COMPARISION BETWEEN 2 MODELS
+
+Here's a preview of how the comparision of 2 experiments and metrics are logged in MLflow:
+
+![Mlflow Comparision](Images/mlflow_comparing.png)
 
 ### 📊 Metrics & Charts
 
 Below is a visualization of metrics like accuracy, precision, recall over different runs:
 
-![MLflow Charts](Images/charts_mlflow.png)
+![MLflow Charts](Images/charts_mlfow.png)
 
 ### 🔁 DVC Pipeline from Dagshub
 
