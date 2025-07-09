@@ -8,3 +8,12 @@ import pandas as pd
 import numpy as np
 import os, sys
 import yaml
+
+class DataValidation:
+    def __init__(self, data_validation_config: DataValidationConfig, data_ingestion_artifact: DataIngestionArtifact):
+        self.data_validation_config = data_validation_config
+        self.data_ingestion_artifact = data_ingestion_artifact
+        self._schema_config = read_yaml_file(SCHEMA_FILE_PATH)
+        self.logger = Custom_Logger().get_logger()
+
+    
