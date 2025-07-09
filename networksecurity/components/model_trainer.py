@@ -67,6 +67,40 @@ class ModelTrainer:
             
             model_report:dict = evaluate_models(X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, models=models, params=params)
             self.logger.info("Model evaluation completed.")
+             ## To get best model score from dict
+            best_model_score = max(sorted(model_report.values()))
+
+            ## To get best model name from dict
+
+            best_model_name = list(model_report.keys())[
+                list(model_report.values()).index(best_model_score)
+            ]
+            best_model = models[best_model_name]
+            y_train_pred=best_model.predict(X_train)
+
+            classification_train_metric=get_classification_score(y_true=y_train,y_pred=y_train_pred)
+    
+            y_test_pred=best_model.predict(X_test)
+            classification_test_metric=get_classification_score(y_true=y_test,y_pred=y_test_pred)
+
+            self.track_mlflow(best_model,classification_test_metric)
+
+            preprocessor = load_obj(file_path=self.data_transformation_artifact.transformed_object_file_path)
+                
+            model_dir_path = os.path.dirname(self.model_trainer_config.trained_model_file_path)
+            os.makedirs(model_dir_path,exist_ok=True)
+
+            Network_Model=NetworkModel(preprocessor=preprocessor,model=best_model)
+            save_obj(self.model_trainer_config.trained_model_file_path,obj=NetworkModel)
+            #model pusher
+            save_obj("final_model/model.pkl",best_model)
+
+            model_trainer_artifact=ModelTrainerArtifactEntity(trained_model_file_path=self.model_trainer_config.trained_model_file_path,
+                             train_metric_artifact=classification_train_metric,
+                             test_metric_artifact=classification_test_metric
+                             )
+            self.logger.info(f"Model trainer artifact: {model_trainer_artifact}")
+            return model_trainer_artifact
         except Exception as e:
             raise CustomException(e, sys) from e
     
@@ -84,7 +118,9 @@ class ModelTrainer:
             X_test, y_test = test_arr[:, :-1], test_arr[:, -1]
             self.logger.info("Data loaded and split into features and target variable.")
 
-            model = self.train_model(X_train, y_train)
+            model_trainer_artifact = self.train_model(X_train, y_train , X_test, y_test)
             self.logger.info("Model trained successfully.")
+            return model_trainer_artifact
+        
         except Exception as e:
             raise CustomException(e, sys) from e
