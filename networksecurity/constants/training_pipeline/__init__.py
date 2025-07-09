@@ -15,6 +15,9 @@ TRAIN_FILE_NAME: str = "train.csv"
 TEST_FILE_NAME: str = "test.csv"
 MODEL_FILE_NAME: str = "model.pkl"
 
+SCHEMA_FILE_PATH = os.path.join("config", "schema.yaml")
+MODEL_FILE_PATH: str = os.path.join("config", "model.yaml")
+
 """
 Data ingestion related constants
 Reading directly from the local CSV file
