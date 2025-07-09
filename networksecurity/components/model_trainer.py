@@ -14,6 +14,10 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import GridSearchCV
 
+import mlflow
+import dagshub
+dagshub.init(repo_owner='Ananddd06', repo_name='Network_Security_end_to_end_Mlops_DVC_Mlflow', mlflow=True)
+
 
 class ModelTrainer:
     def __init__(self, model_trainer_config: ModelTrainerConfigEntity,
@@ -25,6 +29,26 @@ class ModelTrainer:
             self.logger.info("Model Trainer initialized with configuration and artifacts.")
         except Exception as e:
             raise CustomException(e, sys) from e
+    
+    def track_mlflow(self, model, classification_metric):
+        """
+        Track the model and its metrics using MLflow.
+        
+        Args:
+            model: The trained model to log.
+            classification_metric: The classification metrics to log.
+        """
+        try:
+            self.logger.info("Starting MLflow tracking.")
+            # mlflow.set_experiment(experiment_name="Network Security Model Training")
+            with mlflow.start_run():
+                mlflow.log_metric("precision", classification_metric.precision)
+                mlflow.log_metric("recall", classification_metric.recall)
+                mlflow.log_metric("f1_score", classification_metric.f1_score)
+                mlflow.log_metric("r2_score", classification_metric.r2_score)
+                self.logger.info("MLflow tracking completed successfully.")
+        except Exception as e:
+            raise CustomException(e, sys)
     
     def train_model(self, X_train, y_train, X_test, y_test) -> ModelTrainerArtifact:
         try:
@@ -100,6 +124,8 @@ class ModelTrainer:
             y_test_pred = best_model.predict(X_test)
 
             classification_train_metric = get_classification_score(y_true=y_train, y_pred=y_train_pred)
+
+            self.track_mlflow(best_model, classification_train_metric)
             classification_test_metric = get_classification_score(y_true=y_test, y_pred=y_test_pred)
 
             preprocessor = load_obj(file_path=self.data_transformation_artifact.transformed_object_file_path)
@@ -121,7 +147,7 @@ class ModelTrainer:
             return model_trainer_artifact
 
         except Exception as e:
-            raise CustomException(e, sys) from e
+            raise CustomException(e, sys)
     
     def initiate_model_trainer(self) -> ModelTrainerArtifact:
         try:
@@ -145,4 +171,4 @@ class ModelTrainer:
             return model_trainer_artifact
         
         except Exception as e:
-            raise CustomException(e, sys) from e
+            raise CustomException(e, sys)
