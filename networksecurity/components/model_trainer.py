@@ -66,6 +66,7 @@ class ModelTrainer:
             }
             
             model_report:dict = evaluate_models(X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, models=models, params=params)
+            self.logger.info("Model evaluation completed.")
         except Exception as e:
             raise CustomException(e, sys) from e
     
@@ -86,4 +87,4 @@ class ModelTrainer:
             model = self.train_model(X_train, y_train)
             self.logger.info("Model trained successfully.")
         except Exception as e:
-            raise CustomException(e, sys) 
+            raise CustomException(e, sys) from e
