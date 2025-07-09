@@ -109,3 +109,23 @@ class DataTransformationConfigEntity:
             training_pipeline.DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR,  # fixed here
             training_pipeline.MODEL_FILE_NAME  # You might want to change this if you have a specific preprocessing object file name constant
         )
+
+@dataclass
+class ModelTrainerConfigEntity:
+    training_pipeline_config: TrainingPipelineConfigEntity
+
+    def __post_init__(self):
+        self.model_trainer_dir: str = os.path.join(
+            self.training_pipeline_config.artifact_dir,
+            training_pipeline.MODEL_TRAINER_DIR_NAME
+        )
+        self.trained_model_file_path: str = os.path.join(
+            self.model_trainer_dir,
+            training_pipeline.MODEL_TRAINER_TRAINED_MODEL_DIR
+        )
+        self.expected_score: float = training_pipeline.MODEL_TRAINER_EXPECTED_SCORE
+        self.overfitting_underfitting_threshold: training_pipeline.MODEL_TRAINER_OVER_FITTING_UNDER_FITTING_THRESHOLD# Assuming you want to keep this as a constant
+        self.model_config_file_path: str = os.path.join(
+            self.model_trainer_dir,
+            training_pipeline.MODEL_FILE_PATH
+        )
