@@ -78,3 +78,15 @@ class TrainingPipeline:
             logger.info(f"📦 Model Trainer Artifact: {model_trainer_artifact}")
         except Exception as e:
             raise CustomException(e, sys) from e
+    
+    def run_pipeline(self):
+        try:
+            logger.info("🚀 Starting the training pipeline...")
+            data_ingestion_artifact = self.start_data_ingestion()
+            data_validation_artifact = self.start_data_validation(data_ingestion_artifact)
+            data_transformation_artifact = self.start_data_transformation(data_validation_artifact)
+            model_trainer_artifact = self.start_model_trainer(data_transformation_artifact)
+            logger.info("✅ Training pipeline completed successfully.")
+            return model_trainer_artifact
+        except Exception as e:
+            raise CustomException(e, sys) from e

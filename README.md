@@ -150,6 +150,7 @@ Runs the full pipeline on every push:
 - 🔐 Add role-based access control for logs
 - 📊 Grafana + Prometheus monitoring
 - ☁️ Deploy to AWS Sagemaker or GCP AI Platform
+- ✨ CICD Pipeline
 
 ---
 
@@ -161,7 +162,7 @@ If you liked this project, please consider giving it a ⭐️ and sharing with o
 
 ---
 
-## 🧰 Project Extensions You Can Use
+<!-- ## 🧰 Project Extensions You Can Use
 
 Would you like me to now generate:
 
@@ -171,7 +172,7 @@ Would you like me to now generate:
 - 📊 mlflow_tracking.py – script to log parameters, metrics, and models to MLflow
 - 🖥️ Streamlit or Flask app – for serving your trained model via an interactive web app or API
 
----
+--- -->
 
 ## 🖥️ Model Deployment Options
 
