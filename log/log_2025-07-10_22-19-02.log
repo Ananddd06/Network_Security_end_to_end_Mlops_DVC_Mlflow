@@ -1,0 +1,199 @@
+[2025-07-10 22:19:03,799] [INFO] → Starting data ingestion process...
+[2025-07-10 22:19:03,799] [INFO] → Exporting data into feature store...
+[2025-07-10 22:19:03,813] [INFO] → Data read from /Users/anand/Desktop/Network_Security_End_to_End_mlops_DVC_Dagshub/Network_Data/phisingData.csv successfully.
+[2025-07-10 22:19:03,848] [INFO] → Data exported to feature store at artifacts/NetworkSecurityTrainingPipeline/data_ingestion/feature_store/phisingData.csv.
+[2025-07-10 22:19:03,848] [INFO] → Splitting data into training and testing sets...
+[2025-07-10 22:19:03,852] [INFO] → Data split into training and testing sets successfully.
+[2025-07-10 22:19:03,886] [INFO] → Training data saved to artifacts/NetworkSecurityTrainingPipeline/data_ingestion/ingested/train.csv.
+[2025-07-10 22:19:03,886] [INFO] → Testing data saved to artifacts/NetworkSecurityTrainingPipeline/data_ingestion/ingested/test.csv.
+[2025-07-10 22:19:03,886] [INFO] → Data ingestion completed successfully.
+[2025-07-10 22:19:03,886] [INFO] → ✅ Data ingestion completed successfully.
+[2025-07-10 22:19:03,886] [INFO] → 📦 Data Ingestion Artifact: DataIngestionArtifact(trained_file_path='artifacts/NetworkSecurityTrainingPipeline/data_ingestion/ingested/train.csv', test_file_path='artifacts/NetworkSecurityTrainingPipeline/data_ingestion/ingested/test.csv')
+[2025-07-10 22:19:03,889] [INFO] → Data validation artifact directory created at artifacts/NetworkSecurityTrainingPipeline/data_validation
+[2025-07-10 22:19:03,889] [INFO] → Valid train data directory created at artifacts/NetworkSecurityTrainingPipeline/data_validation/valid_train
+[2025-07-10 22:19:03,889] [INFO] → Valid test data directory created at artifacts/NetworkSecurityTrainingPipeline/data_validation/valid_test
+[2025-07-10 22:19:03,899] [INFO] → 📂 Train and Test datasets loaded successfully.
+[2025-07-10 22:19:03,899] [INFO] → ✅ Expected Columns: ['having_IP_Address', 'URL_Length', 'Shortining_Service', 'having_At_Symbol', 'double_slash_redirecting', 'Prefix_Suffix', 'having_Sub_Domain', 'SSLfinal_State', 'Domain_registeration_length', 'Favicon', 'port', 'HTTPS_token', 'Request_URL', 'URL_of_Anchor', 'Links_in_tags', 'SFH', 'Submitting_to_email', 'Abnormal_URL', 'Redirect', 'on_mouseover', 'RightClick', 'popUpWidnow', 'Iframe', 'age_of_domain', 'DNSRecord', 'web_traffic', 'Page_Rank', 'Google_Index', 'Links_pointing_to_page', 'Statistical_report', 'Result']
+[2025-07-10 22:19:03,899] [INFO] → 🧾 Actual Columns: ['having_IP_Address', 'URL_Length', 'Shortining_Service', 'having_At_Symbol', 'double_slash_redirecting', 'Prefix_Suffix', 'having_Sub_Domain', 'SSLfinal_State', 'Domain_registeration_length', 'Favicon', 'port', 'HTTPS_token', 'Request_URL', 'URL_of_Anchor', 'Links_in_tags', 'SFH', 'Submitting_to_email', 'Abnormal_URL', 'Redirect', 'on_mouseover', 'RightClick', 'popUpWidnow', 'Iframe', 'age_of_domain', 'DNSRecord', 'web_traffic', 'Page_Rank', 'Google_Index', 'Links_pointing_to_page', 'Statistical_report', 'Result']
+[2025-07-10 22:19:03,899] [INFO] → ✅ Expected Columns: ['having_IP_Address', 'URL_Length', 'Shortining_Service', 'having_At_Symbol', 'double_slash_redirecting', 'Prefix_Suffix', 'having_Sub_Domain', 'SSLfinal_State', 'Domain_registeration_length', 'Favicon', 'port', 'HTTPS_token', 'Request_URL', 'URL_of_Anchor', 'Links_in_tags', 'SFH', 'Submitting_to_email', 'Abnormal_URL', 'Redirect', 'on_mouseover', 'RightClick', 'popUpWidnow', 'Iframe', 'age_of_domain', 'DNSRecord', 'web_traffic', 'Page_Rank', 'Google_Index', 'Links_pointing_to_page', 'Statistical_report', 'Result']
+[2025-07-10 22:19:03,899] [INFO] → 🧾 Actual Columns: ['having_IP_Address', 'URL_Length', 'Shortining_Service', 'having_At_Symbol', 'double_slash_redirecting', 'Prefix_Suffix', 'having_Sub_Domain', 'SSLfinal_State', 'Domain_registeration_length', 'Favicon', 'port', 'HTTPS_token', 'Request_URL', 'URL_of_Anchor', 'Links_in_tags', 'SFH', 'Submitting_to_email', 'Abnormal_URL', 'Redirect', 'on_mouseover', 'RightClick', 'popUpWidnow', 'Iframe', 'age_of_domain', 'DNSRecord', 'web_traffic', 'Page_Rank', 'Google_Index', 'Links_pointing_to_page', 'Statistical_report', 'Result']
+[2025-07-10 22:19:03,899] [INFO] → 🔍 Detecting outliers using IQR method...
+[2025-07-10 22:19:03,903] [INFO] → 📉 Outliers in 'having_IP_Address': 0
+[2025-07-10 22:19:03,906] [INFO] → 📉 Outliers in 'URL_Length': 1688
+[2025-07-10 22:19:03,907] [INFO] → 📉 Outliers in 'Shortining_Service': 1158
+[2025-07-10 22:19:03,908] [INFO] → 📉 Outliers in 'having_At_Symbol': 1330
+[2025-07-10 22:19:03,910] [INFO] → 📉 Outliers in 'double_slash_redirecting': 1134
+[2025-07-10 22:19:03,913] [INFO] → 📉 Outliers in 'Prefix_Suffix': 1187
+[2025-07-10 22:19:03,917] [INFO] → 📉 Outliers in 'having_Sub_Domain': 0
+[2025-07-10 22:19:03,921] [INFO] → 📉 Outliers in 'SSLfinal_State': 0
+[2025-07-10 22:19:03,922] [INFO] → 📉 Outliers in 'Domain_registeration_length': 0
+[2025-07-10 22:19:03,924] [INFO] → 📉 Outliers in 'Favicon': 1635
+[2025-07-10 22:19:03,926] [INFO] → 📉 Outliers in 'port': 1204
+[2025-07-10 22:19:03,927] [INFO] → 📉 Outliers in 'HTTPS_token': 1430
+[2025-07-10 22:19:03,928] [INFO] → 📉 Outliers in 'Request_URL': 0
+[2025-07-10 22:19:03,932] [INFO] → 📉 Outliers in 'URL_of_Anchor': 0
+[2025-07-10 22:19:03,934] [INFO] → 📉 Outliers in 'Links_in_tags': 0
+[2025-07-10 22:19:03,936] [INFO] → 📉 Outliers in 'SFH': 2088
+[2025-07-10 22:19:03,937] [INFO] → 📉 Outliers in 'Submitting_to_email': 1599
+[2025-07-10 22:19:03,939] [INFO] → 📉 Outliers in 'Abnormal_URL': 1299
+[2025-07-10 22:19:03,941] [INFO] → 📉 Outliers in 'Redirect': 1021
+[2025-07-10 22:19:03,942] [INFO] → 📉 Outliers in 'on_mouseover': 1061
+[2025-07-10 22:19:03,943] [INFO] → 📉 Outliers in 'RightClick': 381
+[2025-07-10 22:19:03,944] [INFO] → 📉 Outliers in 'popUpWidnow': 1700
+[2025-07-10 22:19:03,946] [INFO] → 📉 Outliers in 'Iframe': 806
+[2025-07-10 22:19:03,947] [INFO] → 📉 Outliers in 'age_of_domain': 0
+[2025-07-10 22:19:03,948] [INFO] → 📉 Outliers in 'DNSRecord': 0
+[2025-07-10 22:19:03,950] [INFO] → 📉 Outliers in 'web_traffic': 0
+[2025-07-10 22:19:03,951] [INFO] → 📉 Outliers in 'Page_Rank': 0
+[2025-07-10 22:19:03,952] [INFO] → 📉 Outliers in 'Google_Index': 1219
+[2025-07-10 22:19:03,953] [INFO] → 📉 Outliers in 'Links_pointing_to_page': 0
+[2025-07-10 22:19:03,954] [INFO] → 📉 Outliers in 'Statistical_report': 1243
+[2025-07-10 22:19:03,955] [INFO] → 📉 Outliers in 'Result': 0
+[2025-07-10 22:19:03,955] [INFO] → 🔍 Detecting outliers using IQR method...
+[2025-07-10 22:19:03,956] [INFO] → 📉 Outliers in 'having_IP_Address': 0
+[2025-07-10 22:19:03,957] [INFO] → 📉 Outliers in 'URL_Length': 407
+[2025-07-10 22:19:03,957] [INFO] → 📉 Outliers in 'Shortining_Service': 286
+[2025-07-10 22:19:03,958] [INFO] → 📉 Outliers in 'having_At_Symbol': 325
+[2025-07-10 22:19:03,959] [INFO] → 📉 Outliers in 'double_slash_redirecting': 295
+[2025-07-10 22:19:03,960] [INFO] → 📉 Outliers in 'Prefix_Suffix': 278
+[2025-07-10 22:19:03,960] [INFO] → 📉 Outliers in 'having_Sub_Domain': 0
+[2025-07-10 22:19:03,961] [INFO] → 📉 Outliers in 'SSLfinal_State': 0
+[2025-07-10 22:19:03,962] [INFO] → 📉 Outliers in 'Domain_registeration_length': 0
+[2025-07-10 22:19:03,963] [INFO] → 📉 Outliers in 'Favicon': 418
+[2025-07-10 22:19:03,964] [INFO] → 📉 Outliers in 'port': 298
+[2025-07-10 22:19:03,965] [INFO] → 📉 Outliers in 'HTTPS_token': 366
+[2025-07-10 22:19:03,967] [INFO] → 📉 Outliers in 'Request_URL': 0
+[2025-07-10 22:19:03,967] [INFO] → 📉 Outliers in 'URL_of_Anchor': 0
+[2025-07-10 22:19:03,968] [INFO] → 📉 Outliers in 'Links_in_tags': 0
+[2025-07-10 22:19:03,968] [INFO] → 📉 Outliers in 'SFH': 527
+[2025-07-10 22:19:03,969] [INFO] → 📉 Outliers in 'Submitting_to_email': 415
+[2025-07-10 22:19:03,969] [INFO] → 📉 Outliers in 'Abnormal_URL': 330
+[2025-07-10 22:19:03,970] [INFO] → 📉 Outliers in 'Redirect': 258
+[2025-07-10 22:19:03,971] [INFO] → 📉 Outliers in 'on_mouseover': 254
+[2025-07-10 22:19:03,972] [INFO] → 📉 Outliers in 'RightClick': 95
+[2025-07-10 22:19:03,972] [INFO] → 📉 Outliers in 'popUpWidnow': 437
+[2025-07-10 22:19:03,973] [INFO] → 📉 Outliers in 'Iframe': 206
+[2025-07-10 22:19:03,973] [INFO] → 📉 Outliers in 'age_of_domain': 0
+[2025-07-10 22:19:03,974] [INFO] → 📉 Outliers in 'DNSRecord': 0
+[2025-07-10 22:19:03,975] [INFO] → 📉 Outliers in 'web_traffic': 0
+[2025-07-10 22:19:03,975] [INFO] → 📉 Outliers in 'Page_Rank': 552
+[2025-07-10 22:19:03,976] [INFO] → 📉 Outliers in 'Google_Index': 320
+[2025-07-10 22:19:03,977] [INFO] → 📉 Outliers in 'Links_pointing_to_page': 0
+[2025-07-10 22:19:03,977] [INFO] → 📉 Outliers in 'Statistical_report': 307
+[2025-07-10 22:19:03,978] [INFO] → 📉 Outliers in 'Result': 0
+[2025-07-10 22:19:03,978] [INFO] → 📊 Train Outliers Before Handling: {'having_IP_Address': 0, 'URL_Length': 1688, 'Shortining_Service': 1158, 'having_At_Symbol': 1330, 'double_slash_redirecting': 1134, 'Prefix_Suffix': 1187, 'having_Sub_Domain': 0, 'SSLfinal_State': 0, 'Domain_registeration_length': 0, 'Favicon': 1635, 'port': 1204, 'HTTPS_token': 1430, 'Request_URL': 0, 'URL_of_Anchor': 0, 'Links_in_tags': 0, 'SFH': 2088, 'Submitting_to_email': 1599, 'Abnormal_URL': 1299, 'Redirect': 1021, 'on_mouseover': 1061, 'RightClick': 381, 'popUpWidnow': 1700, 'Iframe': 806, 'age_of_domain': 0, 'DNSRecord': 0, 'web_traffic': 0, 'Page_Rank': 0, 'Google_Index': 1219, 'Links_pointing_to_page': 0, 'Statistical_report': 1243, 'Result': 0}
+[2025-07-10 22:19:03,978] [INFO] → 📊 Test Outliers Before Handling: {'having_IP_Address': 0, 'URL_Length': 407, 'Shortining_Service': 286, 'having_At_Symbol': 325, 'double_slash_redirecting': 295, 'Prefix_Suffix': 278, 'having_Sub_Domain': 0, 'SSLfinal_State': 0, 'Domain_registeration_length': 0, 'Favicon': 418, 'port': 298, 'HTTPS_token': 366, 'Request_URL': 0, 'URL_of_Anchor': 0, 'Links_in_tags': 0, 'SFH': 527, 'Submitting_to_email': 415, 'Abnormal_URL': 330, 'Redirect': 258, 'on_mouseover': 254, 'RightClick': 95, 'popUpWidnow': 437, 'Iframe': 206, 'age_of_domain': 0, 'DNSRecord': 0, 'web_traffic': 0, 'Page_Rank': 552, 'Google_Index': 320, 'Links_pointing_to_page': 0, 'Statistical_report': 307, 'Result': 0}
+[2025-07-10 22:19:03,978] [INFO] → 🔍 Detecting outliers using IQR method...
+[2025-07-10 22:19:03,980] [INFO] → 📉 Outliers in 'having_IP_Address': 0
+[2025-07-10 22:19:03,981] [INFO] → 📉 Outliers in 'URL_Length': 1688
+[2025-07-10 22:19:03,982] [INFO] → 📉 Outliers in 'Shortining_Service': 1158
+[2025-07-10 22:19:03,984] [INFO] → 📉 Outliers in 'having_At_Symbol': 1330
+[2025-07-10 22:19:03,984] [INFO] → 📉 Outliers in 'double_slash_redirecting': 1134
+[2025-07-10 22:19:03,985] [INFO] → 📉 Outliers in 'Prefix_Suffix': 1187
+[2025-07-10 22:19:03,986] [INFO] → 📉 Outliers in 'having_Sub_Domain': 0
+[2025-07-10 22:19:03,986] [INFO] → 📉 Outliers in 'SSLfinal_State': 0
+[2025-07-10 22:19:03,987] [INFO] → 📉 Outliers in 'Domain_registeration_length': 0
+[2025-07-10 22:19:03,988] [INFO] → 📉 Outliers in 'Favicon': 1635
+[2025-07-10 22:19:03,988] [INFO] → 📉 Outliers in 'port': 1204
+[2025-07-10 22:19:03,990] [INFO] → 📉 Outliers in 'HTTPS_token': 1430
+[2025-07-10 22:19:03,991] [INFO] → 📉 Outliers in 'Request_URL': 0
+[2025-07-10 22:19:03,992] [INFO] → 📉 Outliers in 'URL_of_Anchor': 0
+[2025-07-10 22:19:03,993] [INFO] → 📉 Outliers in 'Links_in_tags': 0
+[2025-07-10 22:19:03,993] [INFO] → 📉 Outliers in 'SFH': 2088
+[2025-07-10 22:19:03,994] [INFO] → 📉 Outliers in 'Submitting_to_email': 1599
+[2025-07-10 22:19:03,995] [INFO] → 📉 Outliers in 'Abnormal_URL': 1299
+[2025-07-10 22:19:03,996] [INFO] → 📉 Outliers in 'Redirect': 1021
+[2025-07-10 22:19:03,998] [INFO] → 📉 Outliers in 'on_mouseover': 1061
+[2025-07-10 22:19:04,002] [INFO] → 📉 Outliers in 'RightClick': 381
+[2025-07-10 22:19:04,003] [INFO] → 📉 Outliers in 'popUpWidnow': 1700
+[2025-07-10 22:19:04,004] [INFO] → 📉 Outliers in 'Iframe': 806
+[2025-07-10 22:19:04,005] [INFO] → 📉 Outliers in 'age_of_domain': 0
+[2025-07-10 22:19:04,005] [INFO] → 📉 Outliers in 'DNSRecord': 0
+[2025-07-10 22:19:04,006] [INFO] → 📉 Outliers in 'web_traffic': 0
+[2025-07-10 22:19:04,007] [INFO] → 📉 Outliers in 'Page_Rank': 0
+[2025-07-10 22:19:04,008] [INFO] → 📉 Outliers in 'Google_Index': 1219
+[2025-07-10 22:19:04,009] [INFO] → 📉 Outliers in 'Links_pointing_to_page': 0
+[2025-07-10 22:19:04,009] [INFO] → 📉 Outliers in 'Statistical_report': 1243
+[2025-07-10 22:19:04,010] [INFO] → 📉 Outliers in 'Result': 0
+[2025-07-10 22:19:04,010] [INFO] → 🔍 Detecting outliers using IQR method...
+[2025-07-10 22:19:04,010] [INFO] → 📉 Outliers in 'having_IP_Address': 0
+[2025-07-10 22:19:04,011] [INFO] → 📉 Outliers in 'URL_Length': 407
+[2025-07-10 22:19:04,012] [INFO] → 📉 Outliers in 'Shortining_Service': 286
+[2025-07-10 22:19:04,014] [INFO] → 📉 Outliers in 'having_At_Symbol': 325
+[2025-07-10 22:19:04,015] [INFO] → 📉 Outliers in 'double_slash_redirecting': 295
+[2025-07-10 22:19:04,016] [INFO] → 📉 Outliers in 'Prefix_Suffix': 278
+[2025-07-10 22:19:04,016] [INFO] → 📉 Outliers in 'having_Sub_Domain': 0
+[2025-07-10 22:19:04,017] [INFO] → 📉 Outliers in 'SSLfinal_State': 0
+[2025-07-10 22:19:04,017] [INFO] → 📉 Outliers in 'Domain_registeration_length': 0
+[2025-07-10 22:19:04,018] [INFO] → 📉 Outliers in 'Favicon': 418
+[2025-07-10 22:19:04,018] [INFO] → 📉 Outliers in 'port': 298
+[2025-07-10 22:19:04,019] [INFO] → 📉 Outliers in 'HTTPS_token': 366
+[2025-07-10 22:19:04,020] [INFO] → 📉 Outliers in 'Request_URL': 0
+[2025-07-10 22:19:04,020] [INFO] → 📉 Outliers in 'URL_of_Anchor': 0
+[2025-07-10 22:19:04,021] [INFO] → 📉 Outliers in 'Links_in_tags': 0
+[2025-07-10 22:19:04,021] [INFO] → 📉 Outliers in 'SFH': 527
+[2025-07-10 22:19:04,022] [INFO] → 📉 Outliers in 'Submitting_to_email': 415
+[2025-07-10 22:19:04,022] [INFO] → 📉 Outliers in 'Abnormal_URL': 330
+[2025-07-10 22:19:04,023] [INFO] → 📉 Outliers in 'Redirect': 258
+[2025-07-10 22:19:04,023] [INFO] → 📉 Outliers in 'on_mouseover': 254
+[2025-07-10 22:19:04,024] [INFO] → 📉 Outliers in 'RightClick': 95
+[2025-07-10 22:19:04,025] [INFO] → 📉 Outliers in 'popUpWidnow': 437
+[2025-07-10 22:19:04,025] [INFO] → 📉 Outliers in 'Iframe': 206
+[2025-07-10 22:19:04,026] [INFO] → 📉 Outliers in 'age_of_domain': 0
+[2025-07-10 22:19:04,026] [INFO] → 📉 Outliers in 'DNSRecord': 0
+[2025-07-10 22:19:04,027] [INFO] → 📉 Outliers in 'web_traffic': 0
+[2025-07-10 22:19:04,027] [INFO] → 📉 Outliers in 'Page_Rank': 552
+[2025-07-10 22:19:04,028] [INFO] → 📉 Outliers in 'Google_Index': 320
+[2025-07-10 22:19:04,028] [INFO] → 📉 Outliers in 'Links_pointing_to_page': 0
+[2025-07-10 22:19:04,029] [INFO] → 📉 Outliers in 'Statistical_report': 307
+[2025-07-10 22:19:04,030] [INFO] → 📉 Outliers in 'Result': 0
+[2025-07-10 22:19:04,030] [INFO] → 📊 Train Outliers After Handling: {'having_IP_Address': 0, 'URL_Length': 1688, 'Shortining_Service': 1158, 'having_At_Symbol': 1330, 'double_slash_redirecting': 1134, 'Prefix_Suffix': 1187, 'having_Sub_Domain': 0, 'SSLfinal_State': 0, 'Domain_registeration_length': 0, 'Favicon': 1635, 'port': 1204, 'HTTPS_token': 1430, 'Request_URL': 0, 'URL_of_Anchor': 0, 'Links_in_tags': 0, 'SFH': 2088, 'Submitting_to_email': 1599, 'Abnormal_URL': 1299, 'Redirect': 1021, 'on_mouseover': 1061, 'RightClick': 381, 'popUpWidnow': 1700, 'Iframe': 806, 'age_of_domain': 0, 'DNSRecord': 0, 'web_traffic': 0, 'Page_Rank': 0, 'Google_Index': 1219, 'Links_pointing_to_page': 0, 'Statistical_report': 1243, 'Result': 0}
+[2025-07-10 22:19:04,030] [INFO] → 📊 Test Outliers After Handling: {'having_IP_Address': 0, 'URL_Length': 407, 'Shortining_Service': 286, 'having_At_Symbol': 325, 'double_slash_redirecting': 295, 'Prefix_Suffix': 278, 'having_Sub_Domain': 0, 'SSLfinal_State': 0, 'Domain_registeration_length': 0, 'Favicon': 418, 'port': 298, 'HTTPS_token': 366, 'Request_URL': 0, 'URL_of_Anchor': 0, 'Links_in_tags': 0, 'SFH': 527, 'Submitting_to_email': 415, 'Abnormal_URL': 330, 'Redirect': 258, 'on_mouseover': 254, 'RightClick': 95, 'popUpWidnow': 437, 'Iframe': 206, 'age_of_domain': 0, 'DNSRecord': 0, 'web_traffic': 0, 'Page_Rank': 552, 'Google_Index': 320, 'Links_pointing_to_page': 0, 'Statistical_report': 307, 'Result': 0}
+[2025-07-10 22:19:04,033] [INFO] → Outliers before handling saved at artifacts/NetworkSecurityTrainingPipeline/data_validation/outliers_before.yml
+[2025-07-10 22:19:04,035] [INFO] → Outliers after handling saved at artifacts/NetworkSecurityTrainingPipeline/data_validation/outliers_after.yml
+[2025-07-10 22:19:04,099] [INFO] → Drift report saved at artifacts/NetworkSecurityTrainingPipeline/data_validation/drift_report/drift_report.html
+[2025-07-10 22:19:04,100] [INFO] → ⚠️ Dataset drift detected: False
+[2025-07-10 22:19:04,138] [INFO] → ✅ Valid train data saved at artifacts/NetworkSecurityTrainingPipeline/data_validation/valid_train/train.csv
+[2025-07-10 22:19:04,138] [INFO] → ✅ Valid test data saved at artifacts/NetworkSecurityTrainingPipeline/data_validation/valid_test/test.csv
+[2025-07-10 22:19:04,139] [INFO] → ✅ Data validation completed successfully.
+[2025-07-10 22:19:04,139] [INFO] → Data Transformation class initialized.
+[2025-07-10 22:19:04,139] [INFO] → Entered initiate_data_transformation method of DataTransformation class.
+[2025-07-10 22:19:04,139] [INFO] → Reading training and testing data.
+[2025-07-10 22:19:04,153] [INFO] → Data read successfully. Starting preprocessing.
+[2025-07-10 22:19:04,154] [INFO] → Training data split into input and target features.
+[2025-07-10 22:19:04,155] [INFO] → Testing data split into input and target features.
+[2025-07-10 22:19:04,155] [INFO] → Creating data transformation pipeline.
+[2025-07-10 22:19:04,155] [INFO] → Data transformation pipeline created successfully.
+[2025-07-10 22:19:04,155] [INFO] → Data transformation pipeline created successfully.
+[2025-07-10 22:19:04,160] [INFO] → Enter the save method object of the utils
+[2025-07-10 22:19:04,163] [INFO] → Exited the save object from the utils
+[2025-07-10 22:19:04,163] [INFO] → Transformed data saved successfully.
+[2025-07-10 22:19:04,163] [INFO] → Data transformation artifact created successfully.
+[2025-07-10 22:19:04,164] [INFO] → ✅ Data transformation completed successfully.
+[2025-07-10 22:19:04,164] [INFO] → 📊 Data TransformationArtifact: DataTransformationArtifact(transformed_object_file_path='artifacts/NetworkSecurityTrainingPipeline/data_transformation/transformed_object/model.pkl', transformed_train_file_path='artifacts/NetworkSecurityTrainingPipeline/data_transformation/transformed/train.csv', transformed_test_file_path='artifacts/NetworkSecurityTrainingPipeline/data_transformation/transformed/test.csv')
+[2025-07-10 22:19:04,164] [INFO] → Model Training sstared
+[2025-07-10 22:19:04,164] [INFO] → Model Trainer initialized with configuration and artifacts.
+[2025-07-10 22:19:04,166] [INFO] → Loaded and split training and testing data successfully.
+[2025-07-10 22:19:04,166] [INFO] → Starting model training process.
+[2025-07-10 22:19:04,166] [INFO] → Training and tuning Logistic Regression...
+[2025-07-10 22:19:04,555] [INFO] → Training and tuning Random Forest...
+[2025-07-10 22:19:08,649] [INFO] → Random Forest best params: {'n_estimators': 128}
+[2025-07-10 22:19:08,649] [INFO] → Training and tuning Gradient Boosting...
+[2025-07-10 22:19:30,366] [INFO] → Gradient Boosting best params: {'learning_rate': 0.1, 'n_estimators': 256, 'subsample': 0.9}
+[2025-07-10 22:19:30,366] [INFO] → Training and tuning AdaBoost...
+[2025-07-10 22:19:33,677] [INFO] → AdaBoost best params: {'learning_rate': 0.1, 'n_estimators': 256}
+[2025-07-10 22:19:33,678] [INFO] → Training and tuning Decision Tree...
+[2025-07-10 22:19:33,850] [INFO] → Decision Tree best params: {'criterion': 'log_loss'}
+[2025-07-10 22:19:33,850] [INFO] → Training and tuning KNeighbors...
+[2025-07-10 22:19:34,153] [INFO] → Model evaluation completed.
+[2025-07-10 22:19:34,153] [INFO] → Best model selected: Random Forest with score: 0.9725292247928672
+[2025-07-10 22:19:34,280] [INFO] → Entered the load object method of Utils
+[2025-07-10 22:19:34,282] [INFO] → Exited the load object from the method utils
+[2025-07-10 22:19:34,283] [INFO] → NetworkModel initialized with preprocessor and model.
+[2025-07-10 22:19:34,283] [INFO] → Enter the save method object of the utils
+[2025-07-10 22:19:34,317] [INFO] → Exited the save object from the utils
+[2025-07-10 22:19:34,317] [INFO] → Enter the save method object of the utils
+[2025-07-10 22:19:34,350] [INFO] → Exited the save object from the utils
+[2025-07-10 22:19:34,350] [INFO] → ModelTrainerArtifact created: ModelTrainerArtifact(trained_model_file_path='artifacts/NetworkSecurityTrainingPipeline/model_trainer/trained_model', trained_metric_artifact=ClassificationMetricArtifact(f1_score=0.9915504428382368, r2_score=0.9620128335776967, precision=0.9896362527941476, recall=0.9934720522235823), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9707740916271722, r2_score=0.8636299988331194, precision=0.9624119028974158, recall=0.9792828685258964))
+[2025-07-10 22:19:34,352] [INFO] → Model training completed successfully.
+[2025-07-10 22:19:34,352] [INFO] → Model Training artifact created
