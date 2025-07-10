@@ -1,0 +1,48 @@
+name: CI/CD Pipeline for Network Security MLOps
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  mlops_pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔄 Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: 🧪 Install Dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: ⚙️ Set up DVC
+        uses: iterative/setup-dvc@v1
+
+      - name: ⬇️ Pull DVC Data (if using remote)
+        run: |
+          dvc pull || echo "No remote or data to pull."
+
+      - name: 🚀 Run Main Pipeline
+        run: |
+          source venv/bin/activate
+          python main.py
+
+      - name: ✅ Commit Updated DVC Files
+        run: |
+          git config --global user.email "your_email@example.com"
+          git config --global user.name "Your Name"
+          dvc add artifacts/NetworkSecurityTrainingPipeline
+          git add artifacts/*.dvc artifacts/.gitignore
+          git commit -m "Update artifacts via GitHub Actions" || echo "No changes to commit"
+          git push || echo "Nothing to push"
