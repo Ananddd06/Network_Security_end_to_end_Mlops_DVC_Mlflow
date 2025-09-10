@@ -1,0 +1,13 @@
+{
+	"servers": {
+		"Network_Security_end_to_end_Mlops_DVC_Mlflow Docs": {
+			"type": "http",
+			"url": "https://gitmcp.io/Ananddd06/Network_Security_end_to_end_Mlops_DVC_Mlflow"
+		},
+		"my-mcp-server-fd193f0d": {
+			"url": "https://gitmcp.io/Ananddd06/Network_Security_end_to_end_Mlops_DVC_Mlflow",
+			"type": "http"
+		}
+	},
+	"inputs": []
+}
